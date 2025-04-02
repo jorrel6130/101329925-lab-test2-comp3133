@@ -1,9 +1,15 @@
 <h1>Mission List</h1>
-
+<form [formGroup]="form" (ngSubmit)="search()">
+    <label for="year"> Filter By Year</label>
+    <br>
+    <input type="number" id="year" formControlName="year">
+    <br>
+    <button type="submit">Search</button>
+</form>
 @for (mission of missions; track $index) {
     <div>
         <h2><a href='missiondetails/{{ mission.flight_number }}'>Flight {{ mission.flight_number }}:</a> {{ mission.mission_name }} <img src="{{ mission.links.mission_patch_small }}" alt="Mission Patch" height="32"></h2>
     </div>
 }@empty {
-    <h2>No missions retrieved</h2>
+    <h2>No missions found</h2>
 }

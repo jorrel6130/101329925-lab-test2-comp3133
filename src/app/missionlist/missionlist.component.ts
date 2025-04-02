@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SpacexapiService } from '../network/spacexapi.service';
 import { Mission } from '../models/mission';
+import { FormBuilder, Validator, ReactiveFormsModule, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-missionlist',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './missionlist.component.html',
   styleUrl: './missionlist.component.css'
 })
@@ -12,10 +13,14 @@ import { Mission } from '../models/mission';
 export class MissionlistComponent implements OnInit {
 
   missions: Mission[] = []
+  form: any;
 
-  constructor(private spacexapiService: SpacexapiService) {}
+  constructor(private spacexapiService: SpacexapiService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      year: new FormControl()
+  })
     this.getMissions()
   }
 
@@ -28,6 +33,25 @@ export class MissionlistComponent implements OnInit {
         console.log(error)
       }
     )
+  }
+
+  search() {
+    if (this.form?.valid) {
+      const year = this.form.value.year
+      console.log('Form data:', year);
+      if (year) {
+        this.spacexapiService.getMissionsByYear(year).subscribe(
+          (data:Mission[]) => {
+            this.missions = data
+          },
+          (error) => {
+            console.log(error)
+          }
+        )
+      } else {
+        this.getMissions()
+      }
+    }
   }
 }
 
