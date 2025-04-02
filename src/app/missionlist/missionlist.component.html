@@ -2,7 +2,8 @@
 
 @for (mission of missions; track $index) {
     <div>
-        <p>{{ mission }}</p>
+        <h3>Flight {{ mission.flight_number }}: {{ mission.mission_name }}</h3>
+        <p>Launch Year: {{ mission.launch_year }}</p>
     </div>
 }@empty {
     <h2>No missions retrieved</h2>

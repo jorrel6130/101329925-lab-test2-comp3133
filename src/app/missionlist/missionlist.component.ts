@@ -11,7 +11,7 @@ import { Mission } from '../models/mission';
 
 export class MissionlistComponent implements OnInit {
 
-  missions: any[] = []
+  missions: Mission[] = []
 
   constructor(private spacexapiService: SpacexapiService) {}
 
@@ -21,7 +21,7 @@ export class MissionlistComponent implements OnInit {
 
   private getMissions() {
     this.spacexapiService.getMissions().subscribe(
-      (data:any) => {
+      (data:Mission[]) => {
         this.missions = data
       },
       (error) => {
