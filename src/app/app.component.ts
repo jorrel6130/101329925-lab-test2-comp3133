@@ -5,7 +5,7 @@ import { MissiondetailsComponent } from "./missiondetails/missiondetails.compone
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MissionlistComponent, MissiondetailsComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
