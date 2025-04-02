@@ -1,1 +1,12 @@
-<p>missiondetails works!</p>
+<div>
+    <h2>Flight {{ mission?.flight_number }}: {{ mission?.mission_name }}</h2>
+    <img src="{{ mission?.links?.mission_patch_small }}" alt="Mission Patch">
+    <p>Launch Year: <br>{{ mission?.launch_year }}</p>
+    <p>Details: <br>{{ mission?.details }}</p>
+    <p>Rocket Name: <br>{{ mission?.rocket?.rocket_name }}</p>
+    <p>Rocket Type: <br>{{ mission?.rocket?.rocket_type }}</p>
+    <p><a href='{{ mission?.links?.mission_patch_small }}'>Mission Patch</a></p>
+    <p><a href='{{ mission?.links?.article_link }}'>Article</a></p>
+    <p><a href='{{ mission?.links?.wikipedia }}'>Wikipedia</a></p>
+    <p><a href='{{ mission?.links?.video_link }}'>Video</a></p>
+</div>

@@ -13,4 +13,8 @@ export class SpacexapiService {
   getMissions(): Observable<Mission[]> {
     return this.httpClient.get<Mission[]>('https://api.spacexdata.com/v3/launches')
   }
+
+  getMissionDetails(flight_number: number): Observable<Mission> {
+    return this.httpClient.get<Mission>(`https://api.spacexdata.com/v3/launches/${flight_number}`)
+  }
 }
