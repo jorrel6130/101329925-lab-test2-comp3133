@@ -2,8 +2,15 @@
 
 @for (mission of missions; track $index) {
     <div>
-        <h3>Flight {{ mission.flight_number }}: {{ mission.mission_name }}</h3>
+        <h2>Flight {{ mission.flight_number }}: {{ mission.mission_name }} <img src="{{ mission.links.mission_patch_small }}" alt="Mission Patch" height="32"></h2>
         <p>Launch Year: {{ mission.launch_year }}</p>
+        <p>Details: {{ mission.details }}</p>
+        <p>Rocket Name: {{ mission.rocket.rocket_name }}</p>
+        <p>Rocket Type: {{ mission.rocket.rocket_type }}</p>
+        <p><a href='{{ mission.links.mission_patch_small }}'>Mission Patch</a></p>
+        <p><a href='{{ mission.links.article_link }}'>Article</a></p>
+        <p><a href='{{ mission.links.wikipedia }}'>Wikipedia</a></p>
+        <p><a href='{{ mission.links.video_link }}'>Video</a></p>
     </div>
 }@empty {
     <h2>No missions retrieved</h2>
