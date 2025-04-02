@@ -14,6 +14,10 @@ export const routes: Routes = [
         component: MissionlistComponent
     },
     {
+        path: 'missiondetails',
+        component: MissiondetailsComponent
+    },
+    {
         path: 'missiondetails/:flight_number',
         component: MissiondetailsComponent
     }
