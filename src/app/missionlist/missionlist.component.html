@@ -1,1 +1,9 @@
-<p>missionlist works!</p>
+<h1>Mission List</h1>
+
+@for (mission of missions; track $index) {
+    <div>
+        <p>{{ mission }}</p>
+    </div>
+}@empty {
+    <h2>No missions retrieved</h2>
+}
