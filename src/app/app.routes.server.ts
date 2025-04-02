@@ -8,9 +8,5 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: '**',
     renderMode: RenderMode.Prerender
-  },
-  {
-    path: 'missiondetails/:flight_number',
-    renderMode: RenderMode.Client
   }
 ];
