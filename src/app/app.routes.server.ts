@@ -15,6 +15,6 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'missiondetails/:flight_number',
-    renderMode: RenderMode.Server
+    renderMode: RenderMode.Client
   }
 ];
