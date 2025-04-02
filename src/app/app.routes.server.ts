@@ -14,7 +14,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender
   },
   {
-    path: 'missiondetails/',
+    path: 'missiondetails',
     renderMode: RenderMode.Prerender
   }
 ];
